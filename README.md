@@ -1,43 +1,90 @@
-Laravel 12 Repository Pattern Template
-This project is a Laravel 12-based template that follows the Repository Pattern to maintain clean and structured code. It includes essential features such as authentication, logging, and API documentation.
+# 🚀 Laravel 12 Repository Pattern Boilerplate
 
-Features:
-Repository Pattern: Implements a clear separation between the data access layer and business logic.
-Authentication Module: Built-in authentication system for secure access control.
-Role-Based Access Control (RBAC): Manage user roles and permissions efficiently.
-Logging System: Integrated with Laravel Log Viewer by Rap2h for easy log management.
-API Documentation: Uses Swagger (L5 Swagger) to generate and maintain API documentation.
-Multi-role Support: Users can have multiple roles, with access control handled dynamically.
-Installation:
-Clone the repository:
+A **scalable, clean, and modular** Laravel 12 boilerplate implementing the **Repository Pattern**, with built-in authentication, logging, and API documentation. Designed for maintainability and best practices in modern web application development.
 
-sh
-Copy
-Edit
+---
+
+## 🛠️ Features
+
+✅ **Repository Pattern** – Separates business logic from database queries for cleaner code.  
+✅ **Authentication Module** – Secure user authentication with role-based access.  
+✅ **Role-Based Access Control (RBAC)** – Multi-role support for dynamic permission handling.  
+✅ **Logging System** – Integrated with **Laravel Log Viewer by Rap2h** for seamless log management.  
+✅ **API Documentation** – Powered by **L5 Swagger** for automatically generated API docs.  
+✅ **Multi-Role Support** – Users can have multiple roles, ensuring flexible access control.  
+✅ **Scalable Architecture** – Designed for large-scale applications with modular and reusable components.  
+
+---
+
+## 📦 Installation
+
+Follow these steps to set up the project:
+
+```sh
+# Clone the repository
 git clone <repo-url>
 cd <project-folder>
-Install dependencies:
 
-sh
-Copy
-Edit
+# Install dependencies
 composer install
-Set up the environment:
 
-sh
-Copy
-Edit
+# Set up environment variables
 cp .env.example .env
 php artisan key:generate
-Configure the database in .env and run migrations:
 
-sh
-Copy
-Edit
+# Configure database and run migrations
 php artisan migrate --seed
-Start the development server:
 
-sh
-Copy
-Edit
+# Start the development server
 php artisan serve
+```
+
+---
+
+## 🔐 Authentication & Role Management
+
+- **RBAC System:** Users have multiple roles and permissions.
+- **Middleware-based Authorization:** Protect routes using custom middleware.
+- **Authentication:** Handled via Laravel Sanctum or Passport.
+
+Example middleware usage:
+```php
+Route::prefix("master")
+  ->middleware(['auth:sanctum'])
+  ->group(function () {
+    Route::apiResource("role", RoleController::class)
+      ->except(["show"])
+      ->middleware('role.access');
+  });
+```
+
+---
+
+## 📜 API Documentation
+
+Swagger is integrated to generate API documentation dynamically.
+- Access it at: `/api/documentation`
+- Update docs with:
+  ```sh
+  php artisan l5-swagger:generate
+  ```
+
+---
+
+## 📄 Log Management
+
+Laravel Log Viewer by Rap2h is included for real-time log monitoring.
+- View logs at: `/logs`
+- Ensure logging is configured in `config/logging.php`
+
+---
+
+## 🎯 Contribution & Best Practices
+
+This boilerplate follows best practices:
+- **Service-Repository Pattern** for clean and testable code.
+- **SOLID Principles** for maintainability.
+- **Exception Handling** to ensure API reliability.
+
+Feel free to fork and contribute! 🚀
+
