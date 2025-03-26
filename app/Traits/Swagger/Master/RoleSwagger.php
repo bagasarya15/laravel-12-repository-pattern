@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\SwaggerDocumentation;
+namespace App\Traits\Swagger\Master;
 
 trait RoleSwagger
 {
@@ -8,11 +8,14 @@ trait RoleSwagger
    * @OA\Schema(
    *     schema="Role",
    *     title="Role",
-   *     @OA\Property(property="id", type="integer", example=1),
+   *     description="Role model",
+   *     @OA\Property(property="id", type="string", format="uuid", example="550e8400-e29b-41d4-a716-446655440000"),
    *     @OA\Property(property="name", type="string", example="Super Admin"),
    *     @OA\Property(property="slug", type="string", example="super-admin")
    * )
    */
+
+  public function roleSchemaDocs() {}
 
   /**
    * @OA\Get(
@@ -36,8 +39,8 @@ trait RoleSwagger
    *     @OA\RequestBody(
    *         required=true,
    *         @OA\JsonContent(
-   *             required={"name", "slug"},
-   *             @OA\Property(property="name", type="string", example="Manager"),
+   *             required={"name"},
+   *             @OA\Property(property="name", type="string", example="Manager")
    *         )
    *     ),
    *     @OA\Response(
@@ -58,12 +61,12 @@ trait RoleSwagger
    *         name="id",
    *         in="path",
    *         required=true,
-   *         @OA\Schema(type="integer")
+   *         @OA\Schema(type="string", format="uuid")
    *     ),
    *     @OA\RequestBody(
    *         required=true,
    *         @OA\JsonContent(
-   *             @OA\Property(property="name", type="string", example="Updated Role"),
+   *             @OA\Property(property="name", type="string", example="Updated Role")
    *         )
    *     ),
    *     @OA\Response(
@@ -84,7 +87,7 @@ trait RoleSwagger
    *         name="id",
    *         in="path",
    *         required=true,
-   *         @OA\Schema(type="integer")
+   *         @OA\Schema(type="string", format="uuid")
    *     ),
    *     @OA\Response(
    *         response=204,

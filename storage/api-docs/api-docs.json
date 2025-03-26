@@ -12,7 +12,7 @@
                     "Auth"
                 ],
                 "summary": "Login",
-                "operationId": "c32358a3fd5129fc4d2b4651c0944fb5",
+                "operationId": "6b3a3684dd24294a692e5a769390d1de",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -145,7 +145,7 @@
                     "Master - Role"
                 ],
                 "summary": "Get all roles",
-                "operationId": "7e6c6fcd06d18afc6403809d0ff0b56e",
+                "operationId": "a8e2e6c76305d507331de34f242d084f",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -167,24 +167,19 @@
                     "Master - Role"
                 ],
                 "summary": "Create a new role",
-                "operationId": "9016650757cfc8d8b81797f4893a13b8",
+                "operationId": "37ccbf82b7f41d5e9f5568330f3f26f8",
                 "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "name",
-                                    "slug"
+                                    "name"
                                 ],
                                 "properties": {
                                     "name": {
                                         "type": "string",
                                         "example": "Manager"
-                                    },
-                                    "slug": {
-                                        "type": "string",
-                                        "example": "manager"
                                     }
                                 },
                                 "type": "object"
@@ -212,14 +207,15 @@
                     "Master - Role"
                 ],
                 "summary": "Update a role",
-                "operationId": "6da79c3bde45c35c1fecff2b393b4073",
+                "operationId": "99e8da6ae17e4d3d26578fd82f295562",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string",
+                            "format": "uuid"
                         }
                     }
                 ],
@@ -232,10 +228,6 @@
                                     "name": {
                                         "type": "string",
                                         "example": "Updated Role"
-                                    },
-                                    "slug": {
-                                        "type": "string",
-                                        "example": "updated-role"
                                     }
                                 },
                                 "type": "object"
@@ -261,14 +253,15 @@
                     "Master - Role"
                 ],
                 "summary": "Delete a role",
-                "operationId": "06dcddcb814305e137d09b2d53587ee5",
+                "operationId": "6c7f6f1e535ab6a3734c063ff756e8b4",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string",
+                            "format": "uuid"
                         }
                     }
                 ],
@@ -287,8 +280,9 @@
                 "description": "Role model",
                 "properties": {
                     "id": {
-                        "type": "uuid",
-                        "example": 1
+                        "type": "string",
+                        "format": "uuid",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
                     },
                     "name": {
                         "type": "string",

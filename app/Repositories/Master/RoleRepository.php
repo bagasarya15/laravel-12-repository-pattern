@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 use App\Traits\ResponseTrait;
 use Illuminate\Support\Facades\DB;
 use App\Interfaces\Master\RoleInterface;
+use App\Traits\Swagger\Master\RoleSwagger;
 use App\Http\Resources\Master\RoleResource;
 use App\Http\Requests\Master\Role\StoreRequest;
 use App\Http\Requests\Master\Role\UpdateRequest;
-use App\Traits\SwaggerDocumentation\RoleSwagger;
 
 class RoleRepository implements RoleInterface
 {

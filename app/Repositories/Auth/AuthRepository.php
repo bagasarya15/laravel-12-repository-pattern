@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use App\Traits\ResponseTrait;
 use Illuminate\Support\Facades\Hash;
 use App\Interfaces\Auth\AuthInterface;
+use App\Traits\Swagger\Auth\AuthSwagger;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\Master\UserResource;
-use App\Traits\SwaggerDocumentation\AuthSwagger;
 
 class AuthRepository implements AuthInterface
 {

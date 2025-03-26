@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\SwaggerDocumentation;
+namespace App\Traits\Swagger\Auth;
 
 trait AuthSwagger
 {

@@ -8,16 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-/**
- * @OA\Schema(
- *     schema="Role",
- *     title="Role",
- *     description="Role model",
- *     @OA\Property(property="id", type="uuid", example=1),
- *     @OA\Property(property="name", type="string", example="Super Admin"),
- *     @OA\Property(property="slug", type="string", example="super-admin"),
- * )
- */
 class Role extends Model
 {
   use SoftDeletes, HasUuids;
