@@ -19,7 +19,7 @@ class RoleAccessMiddleware
       return $next($request);
     }
 
-    if (in_array('admin', $roles) || in_array('super-admin', $roles)) {
+    if (in_array('super-admin', $roles) || in_array('petugas', $roles)) {
       return $next($request);
     }
 

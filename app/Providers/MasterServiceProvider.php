@@ -12,16 +12,18 @@ class MasterServiceProvider extends ServiceProvider
   public function register(): void
   {
     $this->app->bind(
-      'App\Interfaces\Master\RoleInterface',
-      'App\Repositories\Master\RoleRepository'
+      'App\Interfaces\Master\PetugasInterface',
+      'App\Repositories\Master\PetugasRepository'
+    );
+
+    $this->app->bind(
+      'App\Interfaces\Master\PengunjungInterface',
+      'App\Repositories\Master\PengunjungRepository'
     );
   }
 
   /**
    * Bootstrap any application services.
    */
-  public function boot(): void
-  {
-    //
-  }
+  public function boot(): void {}
 }

@@ -1,7 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\File;
 
-$routes = glob(__DIR__ . "/api/*.php");
-foreach ($routes as $route) require($route);
+$apiPath = __DIR__ . '/api';
+
+$phpFiles = File::allFiles($apiPath);
+
+foreach ($phpFiles as $file) {
+  require $file->getRealPath();
+}

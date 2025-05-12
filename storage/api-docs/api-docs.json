@@ -19,13 +19,13 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "username",
+                                    "nomor_pokok",
                                     "password"
                                 ],
                                 "properties": {
-                                    "username": {
+                                    "nomor_pokok": {
                                         "type": "string",
-                                        "example": "superadmin"
+                                        "example": "2025001"
                                     },
                                     "password": {
                                         "type": "string",
@@ -61,9 +61,9 @@
                                                             "type": "string",
                                                             "example": "0195b228-66a7-7029-ada8-321debcd9f82"
                                                         },
-                                                        "username": {
+                                                        "nomor_pokok": {
                                                             "type": "string",
-                                                            "example": "superadmin"
+                                                            "example": "2025001"
                                                         },
                                                         "email": {
                                                             "type": "string",
@@ -105,7 +105,7 @@
                                                 },
                                                 "token": {
                                                     "type": "string",
-                                                    "example": "9|f7aRSjiisgkt2TiwYqojnloijnD8jHdmR62PJX18a2e52150"
+                                                    "example": "1|f7aRSjiisgkt2TiwYqojnloijnD8jHdmR62PJX18a2e52150"
                                                 }
                                             },
                                             "type": "object"
@@ -152,10 +152,102 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Role"
-                                    }
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Data loaded successfully."
+                                        },
+                                        "records": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Role"
+                                            }
+                                        },
+                                        "pages": {
+                                            "properties": {
+                                                "links": {
+                                                    "properties": {
+                                                        "first": {
+                                                            "type": "string",
+                                                            "example": "http://localhost:8000/api/master/role?page=1"
+                                                        },
+                                                        "last": {
+                                                            "type": "string",
+                                                            "example": "http://localhost:8000/api/master/role?page=1"
+                                                        },
+                                                        "prev": {
+                                                            "type": "string",
+                                                            "example": null
+                                                        },
+                                                        "next": {
+                                                            "type": "string",
+                                                            "example": null
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "meta": {
+                                                    "properties": {
+                                                        "current_page": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "from": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "last_page": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "links": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "properties": {
+                                                                    "url": {
+                                                                        "type": "string",
+                                                                        "example": null
+                                                                    },
+                                                                    "label": {
+                                                                        "type": "string",
+                                                                        "example": "&laquo; Previous"
+                                                                    },
+                                                                    "active": {
+                                                                        "type": "boolean",
+                                                                        "example": false
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "path": {
+                                                            "type": "string",
+                                                            "example": "http://localhost:8000/api/master/role"
+                                                        },
+                                                        "per_page": {
+                                                            "type": "integer",
+                                                            "example": 15
+                                                        },
+                                                        "to": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "total": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
                                 }
                             }
                         }

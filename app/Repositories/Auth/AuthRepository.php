@@ -2,18 +2,17 @@
 
 namespace App\Repositories\Auth;
 
-use App\Models\User;
+use App\Models\Auth\User;
 use Illuminate\Http\Request;
 use App\Traits\ResponseTrait;
 use Illuminate\Support\Facades\Hash;
 use App\Interfaces\Auth\AuthInterface;
-use App\Traits\Swagger\Auth\AuthSwagger;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Resources\Master\UserResource;
+use App\Http\Resources\Auth\UserResource;
 
 class AuthRepository implements AuthInterface
 {
-  use ResponseTrait, AuthSwagger;
+  use ResponseTrait;
 
   public function login(Request $request)
   {
@@ -31,7 +30,9 @@ class AuthRepository implements AuthInterface
         ], $this->httpCode('UNPROCESSABLE'));
       }
 
-      $user = User::with(['roles'])->where("username", $request->username)->first();
+      $user = User::with(['roles', 'pengunjung', 'petugas'])
+        ->where("username", $request->username)
+        ->first();
 
       if (!$user || !Hash::check($request->password, $user->password)) {
         return response()->json([

@@ -14,13 +14,34 @@ class RoleSeeder extends Seeder
    */
   public function run(): void
   {
-    DB::table('roles')->insert([
+    DB::table('auth.roles')->insert([
       [
         'id' => Str::uuid(),
         'name' => 'super admin',
         'slug' => 'super-admin',
         'created_at' => now(),
-        'updated_at' => now()
+        'updated_at' => now(),
+      ],
+      [
+        'id' => Str::uuid(),
+        'name' => 'pengunjung',
+        'slug' => 'pengunjung',
+        'created_at' => now(),
+        'updated_at' => now(),
+      ],
+      [
+        'id' => Str::uuid(),
+        'name' => 'petugas',
+        'slug' => 'petugas',
+        'created_at' => now(),
+        'updated_at' => now(),
+      ],
+      [
+        'id' => Str::uuid(),
+        'name' => 'peserta',
+        'slug' => 'peserta',
+        'created_at' => now(),
+        'updated_at' => now(),
       ],
     ]);
   }
